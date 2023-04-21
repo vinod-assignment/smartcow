@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  loadblancer:
+
+    image: nginx
+
+    volumes:
+
+      - /nginx-base:/etc/nginx/conf.d/default.conf ~/Desktop/default.conf
+
+    environment:
+
+      - SERVICE_NAME=load-balancer
+
+      - SERVICE_IGNORE=true
+
+    ports:
+
+      - "80:80"

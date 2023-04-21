@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: smartcow_react-ui
+
+spec:
+
+  selector:
+
+    matchLabels:
+
+      app: myapp
+
+  replicas: 1
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: myapp
+
+    spec:
+
+      containers:
+
+      - name: Bff-react-ui
+
+        image : smartcow_react-ui

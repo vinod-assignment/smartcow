@@ -1,0 +1,77 @@
+# Running the Application with Docker Compose
+
+## Prerequisites
+
+- Docker
+
+- Docker Compose
+
+
+####Python Backend####
+
+for python i have created following files
+
+1. app.py
+
+2. requirements.txt
+
+3. Dockerfile
+
+
+1.using command "docker build -t pythonimage ." created python image
+
+2.using command "docker run -p 80:8000 -v $(pwd):/app -- name pythonapp pythonimage" 
+
+exposed to port 8000 and it is working fine.
+
+
+
+###React Frontend ###
+
+i used follwing commands to create sys-stats directory
+
+1. npm install -g create-react-app
+
+2. create-react-app sys-stats
+
+3. npm install axios
+
+
+
+#created Dockerfile for Reactapp to create image and spin-up with container
+
+edited App.js file and reactapp is working fine
+
+#in src folder created stats.js file for stats of cpuusage and memUsage
+
+check files in folder src.
+
+using command
+
+1.docker build -it reactimage . -created docker image 
+
+2.docker run -d -p 3000:3000 --name Reactapp reactimage - created continer and reactapp is running in localhost:3000
+
+insatlled nginx reverse proxy using dockerfile 
+
+###Deployment ###
+
+1.using terraform created instance in aws cloud
+
+also provided user data for the instance
+
+2.by ssh into the server, performed below tasks
+
+1.installed minikube 
+
+2.written deployment.yml file for production 
+
+done with deployment of app
+
+3. Open your browser and go to http://localhost:90
+
+
+
+
+
+

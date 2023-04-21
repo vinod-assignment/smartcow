@@ -1,0 +1,47 @@
+version: "3"
+
+
+
+services:
+
+  api:
+
+    build:
+
+      context: ./api
+
+    ports:
+
+      - "8000:8000"
+
+
+
+  nginx:
+
+    build:
+
+      context: ./nginx
+
+    ports:
+
+      - "90:90"
+
+    depends_on:
+
+      - api
+
+      - react-ui
+
+
+
+  react-ui:
+
+    build:
+
+      context: ./sys-stats
+
+    ports:
+
+      - "3000:3000"
+
+
